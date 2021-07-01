@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Resources:
+# https://en.wikipedia.org/wiki/Md5sum
+# https://stackoverflow.com/questions/4256107/running-bash-commands-in-python/51950538
+
+##############
+
+# The idea for this project is to build an app that will help me organize my back-ups and stop having
+# so many duplicated files (a.k.a. too many photos)
+
+##############
+
+# Basically, it should: 
+# 1. Compare files in different directories
+# 2. If the same file is found in both directories (a duplicated file) >>> delete one of those files 
+
+# To start with this project, I'll start with point 1, compare files in different directories:
+
+#####
+
+# In Python my idea would look roughly like this:
+
+#duplicated = []
+
+#for file1 in dir1:
+#    hash1 = md5sum file1
+#        for file2 in dir2:
+#            hash2 = md5sum file2
+#            if hash1 == hash2:
+#                duplicated.append(file2FILENAME)
+
+# get hashes for test files:
+md5sum CowboyBebopEd2.jpeg patintheback.jpeg Harry_Potter_parser_tongue.jpg grit-toddler.jpeg > test-hashes.md5
+
+### this gives me a file with hashes + filenames, I could continue with Python, just get a file like this for each dir
+
+
+# to check only one hash:
+echo 'dcde6f9c787eeff866a86dfd157b2bc6  CowboyBebopEd2.jpeg' | md5sum -c
+# OUT: CowboyBebopEd2.jpeg: OK
+
